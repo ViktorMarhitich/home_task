@@ -1,0 +1,6 @@
+COPY index.html /tmp/index.html
+COPY 1.jpg /tmp/1.jpg
+
+RUN sed -i 's/\r$//' mvnw
+RUN chmod +x mvnw
+RUN dos2unix mvnw
