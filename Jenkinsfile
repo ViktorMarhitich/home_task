@@ -11,6 +11,11 @@ pipeline {
             git branch: 'main', url: 'https://github.com/ViktorMarhitich/home_task.git'
         }
     }
+
+    stage('Initialize'){
+        def dockerHome = tool 'docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     
     stage('Building Image') {
       steps{
