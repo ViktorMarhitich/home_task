@@ -28,7 +28,7 @@ pipeline {
     
     stage('Push') {
         steps {
-            bat 'docker push testhubviktor/petclinic:latest'
+            bat 'docker push testhubviktor/home_task:latest'
         }
     }
   }
