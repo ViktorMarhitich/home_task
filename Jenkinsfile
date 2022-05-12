@@ -23,7 +23,7 @@ pipeline {
     stage('Login to dockerhub') {
         steps {
            //bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-          bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u testhubviktor --password-stdin'
+          bat 'docker login -u testhubviktor -p $DOCKERHUB_CREDENTIALS_PSW'
         }
     }
     
