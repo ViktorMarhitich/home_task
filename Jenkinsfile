@@ -12,10 +12,7 @@ pipeline {
         }
     }
 
-    stage('Initialize') {
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+    
     
     stage('Building Image') {
       steps{
@@ -25,13 +22,14 @@ pipeline {
     
     stage('Login to dockerhub') {
         steps {
-            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+          //bat 'docker login -u testhubviktor -p $DOCKERHUB_CREDENTIALS_PSW'
         }
     }
     
     stage('Push') {
         steps {
-            sh 'docker push testhubviktor/petclinic:latest'
+            sh 'docker push testhubviktor/home_task:latest'
         }
     }
   }
